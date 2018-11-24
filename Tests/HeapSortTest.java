@@ -1,8 +1,7 @@
 import org.junit.Test;
 
-import java.net.Inet4Address;
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Random;
 
 import static org.junit.Assert.*;
 
@@ -23,13 +22,16 @@ public class HeapSortTest<E> {
         HeapSort.sort(listToSort);
         assertEquals(listToSort,sortedList);
     }
-
     @Test
     public void sortRandom(){
         ArrayList<Integer> listToSort = new ArrayList<>();
-        for(int i=0;i<50;i++){
-            
+        Random rand = new Random();
+        for(long i=0;i<10000000;i++){
+            listToSort.add(rand.nextInt(10000000));
         }
+        System.out.println(listToSort.toString());
+        HeapSort.sort(listToSort);
+        System.out.println(listToSort);
     }
     @Test
     public void sort1() {
