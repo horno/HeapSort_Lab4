@@ -37,22 +37,31 @@ public class HeapSort{
         }
         public void checkHead(){
             int index = 0;
-            int biggestChildIndex = biggestChild(index);
-            while(hasChild(index) && comparator.compare(elements.get(index),elements.get(biggestChildIndex))<0){
-                swap(biggestChildIndex,index);
-                index = biggestChildIndex;
-                biggestChildIndex = biggestChild(index);
+            int maxChildIndex = maxChild(index);
+            while(hasChild(index) && comparator.compare(elements.get(index),elements.get(maxChildIndex))<0){
+                swap(maxChildIndex,index);
+                index = maxChildIndex;
+                maxChildIndex = maxChild(index);
             }
         }
-        public int biggestChild(int index){
-            if(hasRight(index) && hasLeft(index) &&
-                                    comparator.compare(elements.get(left(index)),elements.get(right(index)))>0){
+//        public int maxChild(int index){
+//            if((hasRight(index) && hasLeft(index) &&
+//                                    comparator.compare(elements.get(left(index)),elements.get(right(index)))>0)||
+//                                    hasLeft(index) && !hasRight(index)){
+//                return left(index);
+//            }else if(hasRight(index) && hasLeft(index) &&
+//                    comparator.compare(elements.get(left(index)),elements.get(right(index)))<0){
+//                return right(index);
+//            }else{
+//                return right(index);
+//            }
+//        }
+        public int maxChild(int index){
+            if(){
                 return left(index);
             }else if(hasRight(index) && hasLeft(index) &&
                     comparator.compare(elements.get(left(index)),elements.get(right(index)))<0){
                 return right(index);
-            }else if(hasLeft(index)){
-                return left(index);
             }else{
                 return right(index);
             }

@@ -26,8 +26,8 @@ public class HeapSortTest<E> {
     public void sortRandom(){
         ArrayList<Integer> listToSort = new ArrayList<>();
         Random rand = new Random();
-        for(long i=0;i<10000000;i++){
-            listToSort.add(rand.nextInt(10000000));
+        for(long i=0;i<20;i++){
+            listToSort.add(rand.nextInt(20));
         }
         System.out.println(listToSort.toString());
         HeapSort.sort(listToSort);
