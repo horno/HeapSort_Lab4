@@ -10,7 +10,7 @@ public class HeapSort{
 
         private int heapSize = 0;
 
-        public Heap(ArrayList<E> list, Comparator<? super E> cmp){
+        private Heap(ArrayList<E> list, Comparator<? super E> cmp){
             this.elements = list;
             this.comparator = cmp;
         }
@@ -41,10 +41,17 @@ public class HeapSort{
             while(hasChild(index) && comparator.compare(elements.get(index),elements.get(biggestChildIndex))<0){
                 swap(biggestChildIndex,index);
                 index = biggestChildIndex;
+                biggestChildIndex = biggestChild(index);
             }
         }
         public int biggestChild(int index){
-            if(comparator.compare(elements.get(left(index)),elements.get(right(index)))>0){
+            if(hasRight(index) && hasLeft(index) &&
+                                    comparator.compare(elements.get(left(index)),elements.get(right(index)))>0){
+                return left(index);
+            }else if(hasRight(index) && hasLeft(index) &&
+                    comparator.compare(elements.get(left(index)),elements.get(right(index)))<0){
+                return right(index);
+            }else if(hasLeft(index)){
                 return left(index);
             }else{
                 return right(index);
@@ -78,15 +85,33 @@ public class HeapSort{
         }
     }
     public static <E> void sort(ArrayList<E> list,Comparator<? super E> comp){
-        Heap heap = new Heap(list,comp);
+        Heap<E> heap = new Heap<>(list,comp);
         for(int i=0;i<list.size();i++){
             heap.add();
         }
+        System.out.println(list.toString());
         for(int i=0;i<list.size();i++){
             heap.remove();
         }
+        System.out.println(list.toString());
     }
     public static <E extends Comparable<? super E>> void sort(ArrayList<E> list){
+            Comparator<E> comp = Comparator.naturalOrder();
+            sort(list,comp);
+    }
+    public static <E> void main(String[] args){
+        ArrayList<Integer> listToSort = new ArrayList<>();
+        listToSort.add(7);
+        listToSort.add(14);
+        listToSort.add(1);
+        listToSort.add(2);
+        listToSort.add(16);
+        listToSort.add(9);
+        listToSort.add(9);
+        listToSort.add(8);
+        listToSort.add(3);
+        listToSort.add(10);
 
+        sort(listToSort);
     }
 }
