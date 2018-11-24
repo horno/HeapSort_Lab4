@@ -24,9 +24,15 @@ public class HeapSort{
         }
         private void checkPosition(){
             int index = heapSize - 1;
-            while(hasParent(index) && parent(index)<){
-
+            while(hasParent(index) && comparator.compare(elements.get(index),elements.get(parent(index))) > 0){
+                    swap(index,parent(index));
+                    index = parent(index);
             }
+        }
+        private void swap(int index1, int index2){
+            E aux = elements.get(index1);
+            elements.set(index1,elements.get(index2));
+            elements.set(index2,aux);
         }
         public void remove(int index){
             /* Remove code ? */
