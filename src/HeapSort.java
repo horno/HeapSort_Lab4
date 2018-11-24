@@ -89,29 +89,12 @@ public class HeapSort{
         for(int i=0;i<list.size();i++){
             heap.add();
         }
-        System.out.println(list.toString());
         for(int i=0;i<list.size();i++){
             heap.remove();
         }
-        System.out.println(list.toString());
     }
     public static <E extends Comparable<? super E>> void sort(ArrayList<E> list){
             Comparator<E> comp = Comparator.naturalOrder();
             sort(list,comp);
-    }
-    public static <E> void main(String[] args){
-        ArrayList<Integer> listToSort = new ArrayList<>();
-        listToSort.add(7);
-        listToSort.add(14);
-        listToSort.add(1);
-        listToSort.add(2);
-        listToSort.add(16);
-        listToSort.add(9);
-        listToSort.add(9);
-        listToSort.add(8);
-        listToSort.add(3);
-        listToSort.add(10);
-
-        sort(listToSort);
     }
 }

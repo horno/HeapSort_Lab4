@@ -19,12 +19,18 @@ public class HeapSortTest<E> {
         sortedList.add(2);
         sortedList.add(3);
 
-        System.out.println(listToSort.toString());
-//        System.out.println(sortedList.toString());
+        assertNotEquals(listToSort,sortedList);
         HeapSort.sort(listToSort);
-        System.out.println(listToSort.toString());
+        assertEquals(listToSort,sortedList);
     }
 
+    @Test
+    public void sortRandom(){
+        ArrayList<Integer> listToSort = new ArrayList<>();
+        for(int i=0;i<50;i++){
+            
+        }
+    }
     @Test
     public void sort1() {
     }
