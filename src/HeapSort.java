@@ -10,10 +10,6 @@ public class HeapSort{
 
         private int heapSize = 0;
 
-        public Heap(ArrayList<E> list){
-            this.elements = list;
-            this.comparator = null;
-        }
         public Heap(ArrayList<E> list, Comparator<? super E> cmp){
             this.elements = list;
             this.comparator = cmp;
