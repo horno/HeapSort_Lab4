@@ -34,9 +34,27 @@ public class HeapSort{
             elements.set(index1,elements.get(index2));
             elements.set(index2,aux);
         }
-        public void remove(int index){
-            /* Remove code ? */
+        public void remove(){
+            swap(0,heapSize-1);
+            heapSize--;
+            checkHead();
         }
+        public void checkHead(){
+            int index = 0;
+            int biggestChildIndex = biggestChild(index);
+            while(hasChild(index) && comparator.compare(elements.get(index),elements.get(biggestChildIndex))<0){
+                swap(biggestChildIndex,index);
+                index = biggestChildIndex;
+            }
+        }
+        public int biggestChild(int index){
+            if(comparator.compare(elements.get(left(index)),elements.get(right(index)))>0){
+                return left(index);
+            }else{
+                return right(index);
+            }
+        }
+
         private static int parent(int index){
             if(index%2 == 0){
                 return (index/2) -1;
@@ -56,8 +74,20 @@ public class HeapSort{
         private boolean hasRight(int index){
             return right(index) < heapSize;
         }
+        private boolean hasChild(int index){
+            return hasLeft(index) || hasRight(index);
+        }
         private boolean hasParent(int index){
             return index != 0;
+        }
+    }
+    public static <E> void sort(ArrayList<E> list,Comparator<? super E> comp){
+        Heap heap = new Heap(list,comp);
+        for(int i=0;i<list.size();i++){
+            heap.add();
+        }
+        for(int i=0;i<list.size();i++){
+            heap.remove();
         }
     }
     public static <E extends Comparable<? super E>> void sort(ArrayList<E> list){
