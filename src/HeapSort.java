@@ -52,7 +52,7 @@ public class HeapSort{
                     maxChildIndex = maxChild(index);
                 }
 //            }catch(NullPointerException e){
-//                System.out.println("Null can't be sorted");
+//                System.out.println("Null can't be sorted");   //TODO: decide if include try Catch for null
 //            }
         }
         public int maxChild(int index){

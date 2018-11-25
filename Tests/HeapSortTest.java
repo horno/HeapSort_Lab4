@@ -1,13 +1,11 @@
 import org.junit.Test;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 
 import static org.junit.Assert.*;
 
-public class HeapSortTest<E>{
+public class HeapSortTest{
 
     @Test
     public void sort(){
@@ -53,14 +51,15 @@ public class HeapSortTest<E>{
     }
     @Test
     public void sortRandom(){
-        ArrayList<Integer> toSort = new ArrayList<>();
-        Random rand = new Random();
-        for(long i=0;i<20;i++){
-            toSort.add(rand.nextInt(20));
-        }
-        System.out.println(toSort.toString());
-        HeapSort.sort(toSort);
-        System.out.println(toSort);
+        int arrayLength = 1000;
+        ArrayList<Integer> toSort = sortedArray(arrayLength);   //Creating 2 sorted arrays from 1
+        ArrayList<Integer> sorted = sortedArray(arrayLength);   //to arrayLength (1000)
+
+        shuffleArray(toSort,arrayLength);       //Shuffling array with Fisher Yates algorithm
+
+        HeapSort.sort(toSort);                  //Sorting the array with HeapSort
+
+        assertEquals(sorted,toSort);            //Comparing it with the already sorted array
     }
 
     @Test(expected = NullPointerException.class)
@@ -72,21 +71,44 @@ public class HeapSortTest<E>{
 
         HeapSort.sort(toSort);
     }
-    private void shuffleArray(){
-
-        
+    private <E> void shuffleArray(ArrayList<E> array, int l){ //TODO: explain that is Fisher Yates algorithm
+        Random ran = new Random();
+        int random;
+        E aux;
+        for(int i=1;i<l;i++){
+            random = ran.nextInt(i);
+            aux = array.get(random);
+            array.set(random,array.get(i));
+            array.set(i,aux);
+        }
     }
-//    private int[] shuffleArray(int iterations){     //This function implements the Fisher Yates algorithm for shuffling
-//        int random;                                 //an array
-//        int temporal;
-//        Random rng = new Random();
-//        ArrayList<Integer> sortedArray = new ArrayList<>();
-//        for (int i = 0; i < iterations; i++) {
-//            random = i + rng.nextInt(sortedArray.size() - i);
-//            temporal = sortedArray[random];
-//            sortedArray[random] = sortedArray[i];       //swap
-//            sortedArray[i] = temporal;
-//        }
-//        return sortedArray;
-//    }
+    //TODO make test using comparator
+    @Test
+    public void shuffleTest(){
+        int arrayLength = 100;
+        ArrayList<Integer> sortedList = sortedArray(arrayLength);
+        ArrayList<Integer> toShuffle = sortedArray(arrayLength);
+
+        shuffleArray(toShuffle,arrayLength);
+        assertNotEquals(toShuffle,sortedList);
+    }
+    private ArrayList<Integer> sortedArray(int length){   //Creates a sorted array from 1 to length (parameter)
+        ArrayList<Integer> array = new ArrayList<>();
+        for(int i=0;i<length;i++){
+            array.add(i+1);
+        }
+        return array;
+    }
+    @Test
+    public void sortArrayTest(){
+        ArrayList<Integer> sortedArray = sortedArray(5);
+        ArrayList<Integer> manuallySorted = new ArrayList<>();
+        manuallySorted.add(1);
+        manuallySorted.add(2);
+        manuallySorted.add(3);
+        manuallySorted.add(4);
+        manuallySorted.add(5);
+
+        assertEquals(sortedArray,manuallySorted);
+    }
 }
