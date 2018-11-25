@@ -18,13 +18,13 @@ public class HeapSort{
             heapSize++;     //array.length ha de ser major que heapSize
             checkPosition();
         }
-        private int compareElems(int index1, int index2){ // TODO: implement compareElems to all compare
+        private int compareElems(int index1, int index2){
             return comparator.compare(elements.get(index1),elements.get(index2));
         } //TODO: Make the code more tidy
         private void checkPosition(){
 //            try {
                 int index = heapSize - 1;
-                while (hasParent(index) && comparator.compare(elements.get(index), elements.get(parent(index))) > 0) {
+                while (hasParent(index) && compareElems(index,parent(index)) > 0) {
                     swap(index, parent(index));
                     index = parent(index);
                 }
@@ -46,18 +46,18 @@ public class HeapSort{
             int index = 0;
             int maxChildIndex = maxChild(index);
 //            try {
-                while (hasChild(index) && comparator.compare(elements.get(index), elements.get(maxChildIndex)) < 0) {
+                while (hasChild(index) && compareElems(index,maxChildIndex) < 0) {
                     swap(maxChildIndex, index);
-                    index = maxChildIndex;
+                    index = maxChildIndex;          //TODO: decide if include try Catch for null
                     maxChildIndex = maxChild(index);
                 }
 //            }catch(NullPointerException e){
-//                System.out.println("Null can't be sorted");   //TODO: decide if include try Catch for null
+//                System.out.println("Null can't be sorted");
 //            }
         }
         public int maxChild(int index){
             if((hasRight(index) && hasLeft(index) &&
-                    comparator.compare(elements.get(left(index)),elements.get(right(index)))>0)||
+                    compareElems(left(index),right(index))>0)||
                     hasLeft(index) && !hasRight(index)){
                 return left(index);
             }else {
@@ -68,7 +68,7 @@ public class HeapSort{
             if(index%2 == 0){
                 return (index/2) -1;
             }else{
-                return ((index+1)/2)-1; //TODO Simplificar expressió algebràica
+                return (index-1)/2;
             }
         }
         private static int left(int index){
