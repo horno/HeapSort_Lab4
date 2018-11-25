@@ -14,21 +14,36 @@ public class HeapSort{
             this.elements = list;
             this.comparator = cmp;
         }
-        public void add(){
-            heapSize++;     //array.length ha de ser major que heapSize
+        private void add(){
+            heapSize++;     //array.length must be greater than heapSize
             checkPosition();
         }
-        private int compareElems(int index1, int index2){
-            return comparator.compare(elements.get(index1),elements.get(index2));
-        } //TODO: Make the code more tidy
+        private void remove(){
+            swap(0,heapSize-1);
+            heapSize--;
+            checkRoot();
+        }
         private void checkPosition(){
 //            try {
-                int index = heapSize - 1;
-                while (hasParent(index) && compareElems(index,parent(index)) > 0) {
-                    swap(index, parent(index));
-                    index = parent(index);
-                }
+            int index = heapSize - 1;
+            while (hasParent(index) && compareElems(index,parent(index)) > 0) {
+                swap(index, parent(index));
+                index = parent(index);
+            }
 //            }catch (NullPointerException e){
+//                System.out.println("Null can't be sorted");
+//            }
+        }
+        private void checkRoot() throws NullPointerException{
+            int index = 0;
+            int maxChildIndex = maxChild(index);
+//            try {
+            while (hasChild(index) && compareElems(index,maxChildIndex) < 0) {
+                swap(maxChildIndex, index);
+                index = maxChildIndex;          //TODO: decide if include try Catch for null
+                maxChildIndex = maxChild(index);
+            }
+//            }catch(NullPointerException e){
 //                System.out.println("Null can't be sorted");
 //            }
         }
@@ -37,25 +52,11 @@ public class HeapSort{
             elements.set(index1,elements.get(index2));
             elements.set(index2,aux);
         }
-        public void remove(){
-            swap(0,heapSize-1);
-            heapSize--;
-            checkRoot();
-        }
-        public void checkRoot() throws NullPointerException{
-            int index = 0;
-            int maxChildIndex = maxChild(index);
-//            try {
-                while (hasChild(index) && compareElems(index,maxChildIndex) < 0) {
-                    swap(maxChildIndex, index);
-                    index = maxChildIndex;          //TODO: decide if include try Catch for null
-                    maxChildIndex = maxChild(index);
-                }
-//            }catch(NullPointerException e){
-//                System.out.println("Null can't be sorted");
-//            }
-        }
-        public int maxChild(int index){
+
+        private int compareElems(int index1, int index2){
+            return comparator.compare(elements.get(index1),elements.get(index2));
+        } //TODO: Make the code more tidy
+        private int maxChild(int index){
             if((hasRight(index) && hasLeft(index) &&
                     compareElems(left(index),right(index))>0)||
                     hasLeft(index) && !hasRight(index)){
