@@ -34,6 +34,12 @@ public class HeapSortTest<E> {
         System.out.println(listToSort);
     }
     @Test
-    public void sort1() {
+    public void nullCase(){
+        ArrayList<Integer> listToSort = new ArrayList<>();
+        listToSort.add(1);
+        listToSort.add(null);
+        listToSort.add(3);
+
+        HeapSort.sort(listToSort);
     }
 }

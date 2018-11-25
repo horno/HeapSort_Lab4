@@ -18,11 +18,19 @@ public class HeapSort{
             heapSize++;     //array.length ha de ser major que heapSize
             checkPosition();
         }
+        private int compareElems(int index1, int index2){ // TODO: implement compareElems to all compare
+            return comparator.compare(elements.get(index1),elements.get(index2));
+        } //TODO: Make the code more tidy 
         private void checkPosition(){
-            int index = heapSize - 1;
-            while(hasParent(index) && comparator.compare(elements.get(index),elements.get(parent(index))) > 0){
-                    swap(index,parent(index));
+            try {
+                int index = heapSize - 1;
+                while (hasParent(index) && comparator.compare(elements.get(index), elements.get(parent(index))) > 0) {
+                    swap(index, parent(index));
                     index = parent(index);
+                }
+            }catch (NullPointerException e){
+                System.out.println("Null can't be sorted");
+                System.exit(0);
             }
         }
         private void swap(int index1, int index2){
@@ -33,45 +41,36 @@ public class HeapSort{
         public void remove(){
             swap(0,heapSize-1);
             heapSize--;
-            checkHead();
+            checkRoot();
         }
-        public void checkHead(){
+        public void checkRoot() throws NullPointerException{
             int index = 0;
             int maxChildIndex = maxChild(index);
-            while(hasChild(index) && comparator.compare(elements.get(index),elements.get(maxChildIndex))<0){
-                swap(maxChildIndex,index);
-                index = maxChildIndex;
-                maxChildIndex = maxChild(index);
+            try {
+                while (hasChild(index) && comparator.compare(elements.get(index), elements.get(maxChildIndex)) < 0) {
+                    swap(maxChildIndex, index);
+                    index = maxChildIndex;
+                    maxChildIndex = maxChild(index);
+                }
+            }catch(NullPointerException e){
+                System.out.println("Null can't be sorted");
+                System.exit(0);
             }
         }
-//        public int maxChild(int index){
-//            if((hasRight(index) && hasLeft(index) &&
-//                                    comparator.compare(elements.get(left(index)),elements.get(right(index)))>0)||
-//                                    hasLeft(index) && !hasRight(index)){
-//                return left(index);
-//            }else if(hasRight(index) && hasLeft(index) &&
-//                    comparator.compare(elements.get(left(index)),elements.get(right(index)))<0){
-//                return right(index);
-//            }else{
-//                return right(index);
-//            }
-//        }
         public int maxChild(int index){
-            if(){
+            if((hasRight(index) && hasLeft(index) &&
+                    comparator.compare(elements.get(left(index)),elements.get(right(index)))>0)||
+                    hasLeft(index) && !hasRight(index)){
                 return left(index);
-            }else if(hasRight(index) && hasLeft(index) &&
-                    comparator.compare(elements.get(left(index)),elements.get(right(index)))<0){
-                return right(index);
-            }else{
+            }else {
                 return right(index);
             }
         }
-
         private static int parent(int index){
             if(index%2 == 0){
                 return (index/2) -1;
             }else{
-                return ((index+1)/2)-1;
+                return ((index+1)/2)-1; //TODO Simplificar expressió algebràica
             }
         }
         private static int left(int index){
