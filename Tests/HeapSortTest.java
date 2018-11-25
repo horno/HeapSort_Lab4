@@ -16,7 +16,7 @@ public class HeapSortTest{
         toSort.add(9);
         toSort.add(9);
         toSort.add(4);
-        
+
         ArrayList<Integer> sortedList = new ArrayList<>();
         sortedList.add(1);
         sortedList.add(3);
@@ -71,7 +71,7 @@ public class HeapSortTest{
 
         HeapSort.sort(toSort);
     }
-    private <E> void shuffleArray(ArrayList<E> array, int l){ //TODO: explain that is Fisher Yates algorithm
+    private <E> void shuffleArray(ArrayList<E> array, int l){ //Fisher Yates algorithm to shuffle an array
         Random ran = new Random();
         int random;
         E aux;

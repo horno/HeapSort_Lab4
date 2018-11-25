@@ -55,7 +55,7 @@ public class HeapSort{
 
         private int compareElems(int index1, int index2){
             return comparator.compare(elements.get(index1),elements.get(index2));
-        } //TODO: Make the code more tidy
+        }
         private int maxChild(int index){
             if((hasRight(index) && hasLeft(index) &&
                     compareElems(left(index),right(index))>0)||
