@@ -20,18 +20,17 @@ public class HeapSort{
         }
         private int compareElems(int index1, int index2){ // TODO: implement compareElems to all compare
             return comparator.compare(elements.get(index1),elements.get(index2));
-        } //TODO: Make the code more tidy 
+        } //TODO: Make the code more tidy
         private void checkPosition(){
-            try {
+//            try {
                 int index = heapSize - 1;
                 while (hasParent(index) && comparator.compare(elements.get(index), elements.get(parent(index))) > 0) {
                     swap(index, parent(index));
                     index = parent(index);
                 }
-            }catch (NullPointerException e){
-                System.out.println("Null can't be sorted");
-                System.exit(0);
-            }
+//            }catch (NullPointerException e){
+//                System.out.println("Null can't be sorted");
+//            }
         }
         private void swap(int index1, int index2){
             E aux = elements.get(index1);
@@ -46,16 +45,15 @@ public class HeapSort{
         public void checkRoot() throws NullPointerException{
             int index = 0;
             int maxChildIndex = maxChild(index);
-            try {
+//            try {
                 while (hasChild(index) && comparator.compare(elements.get(index), elements.get(maxChildIndex)) < 0) {
                     swap(maxChildIndex, index);
                     index = maxChildIndex;
                     maxChildIndex = maxChild(index);
                 }
-            }catch(NullPointerException e){
-                System.out.println("Null can't be sorted");
-                System.exit(0);
-            }
+//            }catch(NullPointerException e){
+//                System.out.println("Null can't be sorted");
+//            }
         }
         public int maxChild(int index){
             if((hasRight(index) && hasLeft(index) &&
