@@ -4,6 +4,7 @@
     <list default="true" id="471634d8-7b3d-4afa-a981-dda12ff894b8" name="Default Changelist" comment="Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/HeapSortTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/HeapSortTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HeapSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeapSort.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,13 +41,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="8468" />
+          <entry key="java" value="8647" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8468" />
+          <entry key="JAVA" value="8647" />
           <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
@@ -60,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HeapSort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
+            <state relative-caret-position="-180">
+              <caret line="54" column="108" selection-start-line="54" selection-start-column="108" selection-end-line="54" selection-end-column="108" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2762#2763#0" expanded="true" />
@@ -84,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tests/HeapSortTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
+            <state relative-caret-position="1241">
+              <caret line="78" column="36" lean-forward="true" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -149,7 +150,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543158959482" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543159079623" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -281,12 +282,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HeapSortTest_shuffleTest - 2018.11.25 at 15h 52m 12s.xml">
-      <configuration name="HeapSortTest.shuffleTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HeapSortTest_shuffleTest - 2018.11.25 at 15h 52m 18s.xml">
-      <configuration name="HeapSortTest.shuffleTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HeapSortTest_shuffleTest - 2018.11.25 at 15h 52m 22s.xml">
       <configuration name="HeapSortTest.shuffleTest" configurationId="JUnit" />
     </history-entry>
@@ -309,6 +304,12 @@
       <configuration name="HeapSortTest.sortRandom" configurationId="JUnit" />
     </history-entry>
     <history-entry file="HeapSortTest_sortRandom - 2018.11.25 at 16h 09m 34s.xml">
+      <configuration name="HeapSortTest.sortRandom" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HeapSortTest_sortRandom - 2018.11.25 at 16h 14m 26s.xml">
+      <configuration name="HeapSortTest.sortRandom" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HeapSortTest_sortRandom - 2018.11.25 at 16h 16m 02s.xml">
       <configuration name="HeapSortTest.sortRandom" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -334,11 +335,11 @@
       <window_info id="Favorites" order="6" sideWeight="0.5010101" side_tool="true" weight="0.24963397" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49633968" visible="true" weight="0.32307693" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49633968" weight="0.32307693" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49926794" weight="0.39880952" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32923076" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3276923" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49707174" weight="0.32886904" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50292826" side_tool="true" weight="0.32886904" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
@@ -404,8 +405,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HeapSort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
+        <state relative-caret-position="-180">
+          <caret line="54" column="108" selection-start-line="54" selection-start-column="108" selection-end-line="54" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2762#2763#0" expanded="true" />
@@ -426,8 +427,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/HeapSortTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
+        <state relative-caret-position="1241">
+          <caret line="78" column="36" lean-forward="true" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
         </state>
       </provider>
     </entry>
