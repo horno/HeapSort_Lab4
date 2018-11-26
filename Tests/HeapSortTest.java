@@ -49,9 +49,10 @@ public class HeapSortTest{
         HeapSort.sort(toSort);
         assertEquals(sorted,toSort);
     }
+    //TODO make test using comparator
     @Test
     public void sortRandom(){
-        int arrayLength = 1000;
+        int arrayLength = 10000;
         ArrayList<Integer> toSort = sortedArray(arrayLength);   //Creating 2 sorted arrays from 1
         ArrayList<Integer> sorted = sortedArray(arrayLength);   //to arrayLength (1000)
 
@@ -82,7 +83,6 @@ public class HeapSortTest{
             array.set(i,aux);
         }
     }
-    //TODO make test using comparator
     @Test
     public void shuffleTest(){
         int arrayLength = 100;

@@ -24,28 +24,20 @@ public class HeapSort{
             checkRoot();
         }
         private void checkPosition(){
-//            try {
             int index = heapSize - 1;
             while (hasParent(index) && compareElems(index,parent(index)) > 0) {
                 swap(index, parent(index));
                 index = parent(index);
             }
-//            }catch (NullPointerException e){
-//                System.out.println("Null can't be sorted");
-//            }
         }
         private void checkRoot() throws NullPointerException{
             int index = 0;
             int maxChildIndex = maxChild(index);
-//            try {
             while (hasChild(index) && compareElems(index,maxChildIndex) < 0) {
                 swap(maxChildIndex, index);
                 index = maxChildIndex;          //TODO: decide if include try Catch for null
                 maxChildIndex = maxChild(index);
             }
-//            }catch(NullPointerException e){
-//                System.out.println("Null can't be sorted");
-//            }
         }
         private void swap(int index1, int index2){
             E aux = elements.get(index1);
@@ -101,7 +93,13 @@ public class HeapSort{
         }
     }
     public static <E extends Comparable<? super E>> void sort(ArrayList<E> list){
-            Comparator<E> comp = Comparator.naturalOrder();
+//            Comparator<E> comp = new Comparator<E>() {
+//                @Override
+//                public int compare(E o1, E o2) {
+//                    return o1.compareTo(o2);
+//                }
+//            };
+        MyComparator<E> comp = new MyComparator<>();
             sort(list,comp);
     }
 }
