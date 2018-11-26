@@ -93,13 +93,12 @@ public class HeapSort{
         }
     }
     public static <E extends Comparable<? super E>> void sort(ArrayList<E> list){
-//            Comparator<E> comp = new Comparator<E>() {
-//                @Override
-//                public int compare(E o1, E o2) {
-//                    return o1.compareTo(o2);
-//                }
-//            };
-        MyComparator<E> comp = new MyComparator<>();
+            Comparator<E> comp = new Comparator<E>() {    //TODO decide nested or not
+                @Override
+                public int compare(E o1, E o2) {
+                    return o1.compareTo(o2);
+                }
+            };
             sort(list,comp);
     }
 }

@@ -85,7 +85,7 @@ public class HeapSortTest{
     }
     @Test
     public void shuffleTest(){
-        int arrayLength = 100;
+        int arrayLength = 10;
         ArrayList<Integer> sortedList = sortedArray(arrayLength);
         ArrayList<Integer> toShuffle = sortedArray(arrayLength);
 
@@ -111,4 +111,5 @@ public class HeapSortTest{
 
         assertEquals(sortedArray,manuallySorted);
     }
+
 }
