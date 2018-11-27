@@ -82,7 +82,7 @@ public class HeapSortTest{
         HeapSort.sort(toSort);                  //Sorting the array with HeapSort
         assertEquals(sorted,toSort);            //Comparing it with the already sorted array
     }
-    @Test(expected = NullPointerException.class)
+    @Test(expected = NullPointerException.class)//TODO revisar null
     public void nullCase(){
         ArrayList<Integer> toSort = new ArrayList<>();
         toSort.add(1);

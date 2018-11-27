@@ -11,8 +11,10 @@ public class ParityComparator<Integer> implements Comparator<Integer> {
         int i2 = (int) o2;
         if((i1%2 == 0 && (i1<i2 || i2%2 != 0)) || (i1%2 != 0 && i2%2!=0 && i1<i2)){
             return -1;
+        }else if(i1 == i2){
+            return 0;
         }else{
-            return 1;
+            return -1;
         }
     }
 }
