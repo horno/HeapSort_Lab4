@@ -118,7 +118,7 @@ public class HeapSortTest{
         return array;
     }
     @Test
-    public void sortArrayTest(){
+    public void sortedArrayTest(){
         ArrayList<Integer> sortedArray = sortedArray(5);
         ArrayList<Integer> manuallySorted = new ArrayList<>();
         manuallySorted.add(1);

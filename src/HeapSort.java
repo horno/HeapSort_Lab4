@@ -30,10 +30,10 @@ public class HeapSort{
                 index = parent(index);
             }
         }
-        private void checkRoot() throws NullPointerException{
+        private void checkRoot(){
             int index = 0;
             int maxChildIndex = maxChild(index);
-            while (hasChild(index) && compareElems(index,maxChildIndex) < 0) {
+            while (hasLeft(index) && compareElems(index,maxChildIndex) < 0) {
                 swap(maxChildIndex, index);
                 index = maxChildIndex;
                 maxChildIndex = maxChild(index);
@@ -70,9 +70,6 @@ public class HeapSort{
         }
         private boolean hasRight(int index){
             return right(index) < heapSize;
-        }
-        private boolean hasChild(int index){
-            return hasLeft(index) || hasRight(index);
         }
         private boolean hasParent(int index){
             return index != 0;
