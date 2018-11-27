@@ -14,7 +14,7 @@ public class ParityComparator<Integer> implements Comparator<Integer> {
         }else if(i1 == i2){
             return 0;
         }else{
-            return -1;
+            return 1;
         }
     }
 }
