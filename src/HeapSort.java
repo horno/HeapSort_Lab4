@@ -44,7 +44,6 @@ public class HeapSort{
             elements.set(index1,elements.get(index2));
             elements.set(index2,aux);
         }
-
         private int compareElems(int index1, int index2){
             return comparator.compare(elements.get(index1),elements.get(index2));
         }
@@ -58,11 +57,7 @@ public class HeapSort{
             }
         }
         private static int parent(int index){
-            if(index%2 == 0){
-                return (index/2) -1;
-            }else{
-                return (index-1)/2;
-            }
+            return (index-1)/2;
         }
         private static int left(int index){
             return (index*2)+1;
@@ -93,12 +88,7 @@ public class HeapSort{
         }
     }
     public static <E extends Comparable<? super E>> void sort(ArrayList<E> list){
-            Comparator<E> comp = new Comparator<E>() {    //TODO decide nested or not
-                @Override
-                public int compare(E o1, E o2) {
-                    return o1.compareTo(o2);
-                }
-            };
+            MyComparator<E> comp = new MyComparator<>();
             sort(list,comp);
     }
 }

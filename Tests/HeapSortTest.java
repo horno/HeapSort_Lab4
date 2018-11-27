@@ -51,18 +51,15 @@ public class HeapSortTest{
     }
     //TODO make test using comparator
     @Test
-    public void sortRandom(){
+    public void sortFisherYates(){
         int arrayLength = 10000;
         ArrayList<Integer> toSort = sortedArray(arrayLength);   //Creating 2 sorted arrays from 1
         ArrayList<Integer> sorted = sortedArray(arrayLength);   //to arrayLength (1000)
 
         shuffleArray(toSort,arrayLength);       //Shuffling array with Fisher Yates algorithm
-
         HeapSort.sort(toSort);                  //Sorting the array with HeapSort
-
         assertEquals(sorted,toSort);            //Comparing it with the already sorted array
     }
-
     @Test(expected = NullPointerException.class)
     public void nullCase(){
         ArrayList<Integer> toSort = new ArrayList<>();
@@ -85,10 +82,9 @@ public class HeapSortTest{
     }
     @Test
     public void shuffleTest(){
-        int arrayLength = 10;
+        int arrayLength = 1000;
         ArrayList<Integer> sortedList = sortedArray(arrayLength);
         ArrayList<Integer> toShuffle = sortedArray(arrayLength);
-
         shuffleArray(toShuffle,arrayLength);
         assertNotEquals(toShuffle,sortedList);
     }

@@ -6,6 +6,4 @@ public class MyComparator<E extends Comparable<? super E>> implements Comparator
     public int compare(E o1, E o2) {
         return o1.compareTo(o2);
     }
-//    @Override
-//    public int compareBizzarre
 }
