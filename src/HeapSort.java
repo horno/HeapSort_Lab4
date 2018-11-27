@@ -35,7 +35,7 @@ public class HeapSort{
             int maxChildIndex = maxChild(index);
             while (hasChild(index) && compareElems(index,maxChildIndex) < 0) {
                 swap(maxChildIndex, index);
-                index = maxChildIndex;          //TODO: decide if include try Catch for null
+                index = maxChildIndex;
                 maxChildIndex = maxChild(index);
             }
         }

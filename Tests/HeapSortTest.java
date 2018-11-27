@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class HeapSortTest{
 
     @Test
-    public void sort(){
+    public void integerSort(){
         ArrayList<Integer> toSort = new ArrayList<>();
         toSort.add(23);
         toSort.add(1);
@@ -49,7 +49,29 @@ public class HeapSortTest{
         HeapSort.sort(toSort);
         assertEquals(sorted,toSort);
     }
-    //TODO make test using comparator
+    @Test
+    public void comparatorSort(){
+        ParityComparator<Integer> comp = new ParityComparator<>();
+        ArrayList<Integer> toSort = new ArrayList<>();
+        toSort.add(9);
+        toSort.add(6);
+        toSort.add(7);
+        toSort.add(8);
+        toSort.add(4);
+        toSort.add(1);
+        toSort.add(2);
+        ArrayList<Integer> sorted = new ArrayList<>();
+        sorted.add(2);
+        sorted.add(4);
+        sorted.add(6);
+        sorted.add(8);
+        sorted.add(1);
+        sorted.add(7);
+        sorted.add(9);
+
+        HeapSort.sort(toSort,comp);
+        assertEquals(sorted,toSort);
+    }
     @Test
     public void sortFisherYates(){
         int arrayLength = 10000;
@@ -107,5 +129,4 @@ public class HeapSortTest{
 
         assertEquals(sortedArray,manuallySorted);
     }
-
 }
