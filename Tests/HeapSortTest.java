@@ -82,15 +82,6 @@ public class HeapSortTest{
         HeapSort.sort(toSort);                  //Sorting the array with HeapSort
         assertEquals(sorted,toSort);            //Comparing it with the already sorted array
     }
-    @Test(expected = NullPointerException.class)//TODO revisar null
-    public void nullCase(){
-        ArrayList<Integer> toSort = new ArrayList<>();
-        toSort.add(1);
-        toSort.add(null);
-        toSort.add(3);
-
-        HeapSort.sort(toSort);
-    }
     private <E> void shuffleArray(ArrayList<E> array, int l){ //Fisher Yates algorithm to shuffle an array
         Random ran = new Random();
         int random;
