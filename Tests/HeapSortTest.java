@@ -81,7 +81,7 @@ public class HeapSortTest{
         shuffleArray(toSort,arrayLength);       //Shuffling array with Fisher Yates algorithm
         HeapSort.sort(toSort);                  //Sorting the array with HeapSort
         assertEquals(sorted,toSort);            //Comparing it with the already sorted array
-    }
+    }  
     private <E> void shuffleArray(ArrayList<E> array, int l){ //Fisher Yates algorithm to shuffle an array
         Random ran = new Random();
         int random;
